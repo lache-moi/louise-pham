@@ -1,42 +1,123 @@
-#root {
-  max-width: 1280px;
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.nav-tabs-left {
+  flex: 1;
+}
+
+.nav-tabs-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.nav-tab {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.nav-tab:hover {
+  color: #000;
+  background-color: #f5f5f5;
+}
+
+.nav-tab.active {
+  color: #000;
+  font-weight: 600;
+  background-color: #f0f0f0;
+}
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 4rem 3rem;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.main-content h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #000;
+  letter-spacing: -0.5px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.main-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .header-title {
+    position: static;
+    transform: none;
+    order: -1;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .nav-tabs-left,
+  .nav-tabs-right {
+    flex-wrap: wrap;
+    justify-content: center;
   }
-}
+  
+  .nav-tabs-right {
+    margin-top: 0.5rem;
+  }
 
-.card {
-  padding: 2em;
-}
+  .main-content {
+    padding: 2rem 1.5rem;
+  }
 
-.read-the-docs {
-  color: #888;
+  .main-content h2 {
+    font-size: 2rem;
+  }
 }
