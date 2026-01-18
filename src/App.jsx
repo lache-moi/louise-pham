@@ -1,5 +1,11 @@
 import { useState } from 'react'
 import './App.css'
+import Home from './pages/Home'
+import About from './pages/About'
+import Services from './pages/Services'
+import Approach from './pages/Approach'
+import FAQ from './pages/FAQ'
+import Contact from './pages/Contact'
 
 function App() {
   const [activeTab, setActiveTab] = useState('Home')
@@ -7,30 +13,22 @@ function App() {
   const leftTabs = ['Home', 'About', 'Services']
   const rightTabs = ['Approach', 'FAQ', 'Contact']
 
-  const content = {
-    Home: {
-      title: 'Welcome',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-    },
-    About: {
-      title: 'About',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-    },
-    Services: {
-      title: 'Services',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-    },
-    Approach: {
-      title: 'Approach',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-    },
-    FAQ: {
-      title: 'Frequently Asked Questions',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-    },
-    Contact: {
-      title: 'Contact',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+  const renderPage = () => {
+    switch (activeTab) {
+      case 'Home':
+        return <Home />
+      case 'About':
+        return <About />
+      case 'Services':
+        return <Services />
+      case 'Approach':
+        return <Approach />
+      case 'FAQ':
+        return <FAQ />
+      case 'Contact':
+        return <Contact />
+      default:
+        return <Home />
     }
   }
 
@@ -62,8 +60,7 @@ function App() {
         </nav>
       </header>
       <main className="main-content">
-        <h2>{content[activeTab].title}</h2>
-        <p>{content[activeTab].text}</p>
+        {renderPage()}
       </main>
     </div>
   )
